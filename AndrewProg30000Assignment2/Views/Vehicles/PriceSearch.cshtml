@@ -1,0 +1,49 @@
+@using AndrewProg30000Assignment2.Models
+@model IEnumerable<Vehicle>
+
+@{
+    ViewData["Title"] = "Price Search";
+}
+
+<h1>Price Search</h1>
+
+<form asp-action="PriceSearch" method="get" class="mb-3">
+    <label for="price" class="form-label">Show vehicles priced above:</label>
+    <input type="number" step="0.01" min="0" id="price" name="price" value="@ViewBag.Price" class="form-control w-auto d-inline-block" />
+    <button type="submit" class="btn btn-primary">Search</button>
+    <a asp-controller="Home" asp-action="Index" class="btn btn-secondary">Back to Home</a>
+</form>
+
+@if (ViewBag.Searched == true)
+{
+    if (!Model.Any())
+    {
+        <p>No vehicles found with a price above that value.</p>
+    }
+    else
+    {
+        <table class="table">
+            <thead>
+            <tr>
+                <th>Make</th>
+                <th>Type</th>
+                <th>Purchase Date</th>
+                <th>Year</th>
+                <th>Price</th>
+            </tr>
+            </thead>
+            <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@Html.DisplayFor(m => item.Make)</td>
+                    <td>@Html.DisplayFor(m => item.Type)</td>
+                    <td>@Html.DisplayFor(m => item.PurchaseDate)</td>
+                    <td>@Html.DisplayFor(m => item.Year)</td>
+                    <td>@Html.DisplayFor(m => item.Price)</td>
+                </tr>
+            }
+            </tbody>
+        </table>
+    }
+}

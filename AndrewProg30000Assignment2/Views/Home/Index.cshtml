@@ -1,8 +1,17 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
+@{
+    ViewData["Title"] = "Home";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+<h1>Vehicle Management System</h1>
+
+<p><strong>Name:</strong> Andrew Do</p>
+<p><strong>Student Number:</strong> 991785692</p>
+<p><strong>Course Code:</strong> PROG30000</p>
+<p><strong>Topic:</strong> Vehicle Management System (VMS)</p>
+
+<ul>
+    <li><a asp-controller="Vehicles" asp-action="Index">All Vehicles</a></li>
+    <li><a asp-controller="Vehicles" asp-action="Create">Add a Vehicle</a></li>
+    <li><a asp-controller="Vehicles" asp-action="Filter">Filter by Type</a></li>
+    <li><a asp-controller="Vehicles" asp-action="PriceSearch">Price Search</a></li>
+</ul>

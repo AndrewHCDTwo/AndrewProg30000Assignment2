@@ -1,0 +1,50 @@
+@using AndrewProg30000Assignment2.Models
+@model IEnumerable<Vehicle>
+
+@{
+    ViewData["Title"] = "Filter by Type";
+    var selected = ViewBag.SelectedType as VehicleType?;
+}
+
+<h1>Filter by Type</h1>
+
+<form asp-action="Filter" method="get" class="mb-3">
+    <select name="type" class="form-select w-auto d-inline-block">
+        @foreach (var t in Enum.GetValues<VehicleType>())
+        {
+            <option value="@t" selected="@(selected == t)">@t</option>
+        }
+    </select>
+    <button type="submit" class="btn btn-primary">Search</button>
+    <a asp-controller="Home" asp-action="Index" class="btn btn-secondary">Back to Home</a>
+</form>
+
+@if (ViewBag.Searched == true)
+{
+    if (!Model.Any())
+    {
+        <p>No vehicles found for this type.</p>
+    }
+    else
+    {
+        <table class="table">
+            <thead>
+            <tr>
+                <th>Make</th>
+                <th>Purchase Date</th>
+                <th>Price</th>
+            </tr>
+            </thead>
+            <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@Html.DisplayFor(m => item.Make)</td>
+                    <td>@Html.DisplayFor(m => item.PurchaseDate)</td>
+                    <td>@Html.DisplayFor(m => item.Price)</td>
+                </tr>
+            }
+            </tbody>
+        </table>
+    }
+}
