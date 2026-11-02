@@ -1,0 +1,24 @@
+﻿@model AndrewProg30000Assignment2.Models.Vehicle
+
+@{
+    ViewData["Title"] = "Vehicle Details";
+}
+
+<h1>Vehicle Details</h1>
+
+<dl class="row">
+    <dt class="col-sm-2">@Html.DisplayNameFor(m => m.Make)</dt>
+    <dd class="col-sm-10">@Html.DisplayFor(m => m.Make)</dd>
+    <dt class="col-sm-2">@Html.DisplayNameFor(m => m.Type)</dt>
+    <dd class="col-sm-10">@Html.DisplayFor(m => m.Type)</dd>
+    <dt class="col-sm-2">@Html.DisplayNameFor(m => m.PurchaseDate)</dt>
+    <dd class="col-sm-10">@Html.DisplayFor(m => m.PurchaseDate)</dd>
+    <dt class="col-sm-2">@Html.DisplayNameFor(m => m.Year)</dt>
+    <dd class="col-sm-10">@Html.DisplayFor(m => m.Year)</dd>
+    <dt class="col-sm-2">@Html.DisplayNameFor(m => m.Price)</dt>
+    <dd class="col-sm-10">@Html.DisplayFor(m => m.Price)</dd>
+</dl>
+
+<a asp-action="Edit" asp-route-id="@Model.VehicleId">Edit</a> |
+<a asp-action="Index">Back to List</a> |
+<a asp-controller="Home" asp-action="Index">Back to Home</a>
